@@ -1,0 +1,189 @@
+.grid {
+  display: grid;
+  position: relative;
+  grid-template-columns: repeat(7, 5em);
+  grid-template-rows: repeat(6, 5em);
+  flex-wrap: wrap;
+  padding: 10px;
+  place-content: center;
+}
+.grid-image-overlay {
+    z-index:1;
+    grid-column: 1 / -1;
+    grid-row: 1 / -1;
+    background: url(sources/grid.png) center center;
+    background-size: cover;
+}
+.grid div[class^="field"] {
+    z-index:0;
+}
+.field-1 {
+    grid-column: 1;
+    grid-row: 1;
+}
+.field-2 {
+    grid-column: 1;
+    grid-row: 2;
+}
+.field-3 {
+    grid-column: 1;
+    grid-row: 3;
+}
+.field-4 {
+    grid-column: 1;
+    grid-row: 4;
+}
+.field-5 {
+    grid-column: 1;
+    grid-row: 5;
+}
+.field-6 {
+    grid-column: 1;
+    grid-row: 6;
+}
+.field-7 {
+    grid-column: 2;
+    grid-row: 1;
+}
+.field-8 {
+    grid-column: 2;
+    grid-row: 2;
+}
+.field-9 {
+    grid-column: 2;
+    grid-row: 3;
+}
+.field-10 {
+    grid-column: 2;
+    grid-row: 4;
+}
+.field-11 {
+    grid-column: 2;
+    grid-row: 5;
+}
+.field-12 {
+    grid-column: 2;
+    grid-row: 6;
+}
+.field-13 {
+    grid-column: 3;
+    grid-row: 1;
+}
+.field-14 {
+    grid-column: 3;
+    grid-row: 2;
+}
+.field-15 {
+    grid-column: 3;
+    grid-row: 3;
+}
+.field-16 {
+    grid-column: 3;
+    grid-row: 4;
+}
+.field-17 {
+    grid-column: 3;
+    grid-row: 5;
+}
+.field-18 {
+    grid-column: 3;
+    grid-row: 6;
+}
+.field-19 {
+    grid-column: 4;
+    grid-row: 1;
+}
+.field-20 {
+    grid-column: 4;
+    grid-row: 2;
+}
+.field-21 {
+    grid-column: 4;
+    grid-row: 3;
+}
+.field-22 {
+    grid-column: 4;
+    grid-row: 4;
+}
+.field-23 {
+    grid-column: 4;
+    grid-row: 5;
+}
+.field-24 {
+    grid-column: 4;
+    grid-row: 6;
+}
+.field-25 {
+    grid-column: 5;
+    grid-row: 1;
+}
+.field-26 {
+    grid-column: 5;
+    grid-row: 2;
+}
+.field-27 {
+    grid-column: 5;
+    grid-row: 3;
+    background: url(sources/rick.jpg) center center;
+    background-size: cover;
+}
+.field-28 {
+    grid-column: 5;
+    grid-row: 4;
+}
+.field-29 {
+    grid-column: 5;
+    grid-row: 5;
+}
+.field-30 {
+    grid-column: 5;
+    grid-row: 6;
+}
+.field-31 {
+    grid-column: 6;
+    grid-row: 1;
+}
+.field-32 {
+    grid-column: 6;
+    grid-row: 2;
+}
+.field-33 {
+    grid-column: 6;
+    grid-row: 3;
+}
+.field-34 {
+    grid-column: 6;
+    grid-row: 4;
+}
+.field-35 {
+    grid-column: 6;
+    grid-row: 5;
+}
+.field-36 {
+    grid-column: 6;
+    grid-row: 6;
+}
+.field-37 {
+    grid-column: 7;
+    grid-row: 1;
+}
+.field-38 {
+    grid-column: 7;
+    grid-row: 2;
+}
+.field-39 {
+    grid-column: 7;
+    grid-row: 3;
+}
+.field-40 {
+    grid-column: 7;
+    grid-row: 4;
+}
+.field-41 {
+    grid-column: 7;
+    grid-row: 5;
+}
+.field-42 {
+    grid-column: 7;
+    grid-row: 6;
+}

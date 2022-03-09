@@ -1,0 +1,160 @@
+/*   color variables */
+/*   border radius */
+:root {
+  color: #000000;
+}
+
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+body {
+  font-family: Montserrat, sans-serif;
+  color: white;
+}
+
+#title {
+  background: -webkit-linear-gradient(45deg, #03e9f4, #243b55);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-animation: hue 20s infinite linear;
+  -webkit-animation-direction: alternate;
+          animation-direction: alternate;
+  margin-left: 2rem;
+}
+
+@-webkit-keyframes hue {
+  from {
+    -webkit-filter: hue-rotate(0deg);
+  }
+  to {
+    -webkit-filter: hue-rotate(45deg);
+  }
+}
+
+.nav {
+  position: fixed;
+  width: 100vw;
+  background-color: #21242b;
+  -webkit-box-shadow: 0 0 10px #000000;
+          box-shadow: 0 0 10px #000000;
+  z-index: 10;
+}
+
+.nav__list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 1rem;
+  margin: 0 2rem;
+}
+
+.nav__listlogo {
+  list-style: none;
+  margin-right: auto;
+  cursor: pointer;
+  color: #ffffff;
+}
+
+.nav__listlogo:hover, .nav__listlogo:focus {
+  color: #03e9f4;
+}
+
+.nav__listitem {
+  list-style: none;
+  font-weight: bold;
+  position: relative;
+  padding: 1.5rem 1rem;
+  cursor: pointer;
+  color: #ffffff;
+}
+
+.nav__listitem:hover, .nav__listitem:focus {
+  color: #03e9f4;
+}
+
+.nav__listitem::after {
+  content: "";
+  width: 0;
+  height: 0.3rem;
+  border-radius: 0.2rem;
+  position: absolute;
+  left: 1rem;
+  bottom: 0.8rem;
+  background-color: #03e9f4;
+  -webkit-transition: width 200ms ease-in;
+  transition: width 200ms ease-in;
+}
+
+.nav__listitem:hover::after, .nav__listitem:focus::after {
+  width: 70%;
+}
+
+.nav__listitem:hover ul,
+.nav__listitem:focus ul {
+  opacity: 1;
+  visibility: visible;
+}
+
+.nav__listitemdrop {
+  position: absolute;
+  top: 4rem;
+  left: -1.75rem;
+  background-color: #21242b;
+  -webkit-box-shadow: 0 0 10px black;
+          box-shadow: 0 0 10px black;
+  border-radius: 0.2rem;
+  width: 12rem;
+  padding: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 0.5rem;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
+  color: #ffffff;
+}
+
+.nav__listitemdrop li {
+  list-style: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0.2rem;
+  -webkit-transition: background-color 200ms ease-in-out;
+  transition: background-color 200ms ease-in-out;
+}
+
+.nav__listitemdrop li:hover, .nav__listitemdrop li:focus {
+  background-color: #243b55;
+}
+
+.container {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  top: 4em;
+  padding: 6em;
+}
+/*# sourceMappingURL=sass.css.map */
