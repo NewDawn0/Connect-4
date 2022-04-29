@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="sass.css">
+<link rel="stylesheet" href="main.css">
+<script src=""></script>
+<title>Connect 4</title>
+<body>
+    <nav class="nav">
+        <ul class="nav__list">
+            <li class="nav__listlogo">
+                <h1 id="title">Connect 4</h1>
+            </li>
+            <li class="nav__listitem"><a target="_blank" href="https://github.com/NewDawn0/Connect-4">Source Code</a>
+            </li>
+            <li class="nav__listitem">Contact
+                <ul class="nav__listitemdrop">
+                    <li><a target="_blank"
+                            href="https://teams.microsoft.com/l/chat/0/0?users=tom.suter@stud.kswe.ch">Teams
+                            (Tom)</a></li>
+                    <li><a target="_blank"
+                            href="https://teams.microsoft.com/l/chat/0/0?users=simon.graber@stud.kswe.ch">Teams
+                            (Simon)</a>
+                    </li>
+                    <li><a target="_blank"
+                            href="https://teams.microsoft.com/l/chat/0/0?users=daniel.estermann@stud.kswe.ch">Teams
+                            (Daniel)</a>
+                    </li>
+                    <li><a target="_blank" href="https://github.com/NewDawn0">GitHub</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+    <div class="Users" >
+        <h1>Users</h1>
+        </br>
+        <div id="usersjson"></div>
+        <script>
+            getData();
+            async function getData() {
+                
+                const response = await fetch('/api/users');
+                const data = await response.json();
+                console.log(data);
+                appendData(data);
+                //console.log(localStorage.getItem('user'));
+                //document.getElementById('usersjson').innerHTML = JSON.stringify(data, null, 2);
+            }
+            appendData = data => {
+                var mainContainer = document.getElementById("usersjson");
+                for (var i = 0; i < data.length; i++) {
+                    var you = JSON.parse(localStorage.getItem("user"));
+                    if (data[1].name === you.name) {
+                    } else {
+                        let user = {
+                            name: data[i].name,
+                            wins: data[i].wins,
+                            losses: data[i].losses,
+                            draws: data[i].draws,
+                        };
+                        var name = document.createElement("h2");
+                        var wins = document.createElement("h3");
+                        var losses = document.createElement("h3");
+                        var draws = document.createElement("h3");
+                        var nl = document.createElement("br");
+                        name.innerHTML = data[i].name;
+                        wins.innerHTML = 'wins: ' + data[i].wins;
+                        losses.innerHTML = 'losses: ' + data[i].losses;
+                        draws.innerHTML = 'draws: ' + data[i].draws;
+                        name.onclick = function () { getUser(user) }
+                        wins.onclick = function () { getUser(user) }
+                        losses.onclick = function () { getUser(user) }
+                        draws.onclick = function () { getUser(user) }
+                        mainContainer.appendChild(name);
+                        mainContainer.appendChild(wins);
+                        mainContainer.appendChild(losses);
+                        mainContainer.appendChild(draws);
+                        mainContainer.appendChild(nl);
+                    }
+                }
+            }
+            getUser = data => {
+                console.log(data);
+                localStorage.setItem('enemy', JSON.stringify(data));
+                location.href = "./games.html";
+            }
+        </script>
+    </div>
+    
+</body>
