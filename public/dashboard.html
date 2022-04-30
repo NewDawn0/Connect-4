@@ -51,33 +51,30 @@
                 var mainContainer = document.getElementById("usersjson");
                 for (var i = 0; i < data.length; i++) {
                     var you = JSON.parse(localStorage.getItem("user"));
-                    if (data[1].name === you.name) {
-                    } else {
-                        let user = {
-                            name: data[i].name,
-                            wins: data[i].wins,
-                            losses: data[i].losses,
-                            draws: data[i].draws,
-                        };
-                        var name = document.createElement("h2");
-                        var wins = document.createElement("h3");
-                        var losses = document.createElement("h3");
-                        var draws = document.createElement("h3");
-                        var nl = document.createElement("br");
-                        name.innerHTML = data[i].name;
-                        wins.innerHTML = 'wins: ' + data[i].wins;
-                        losses.innerHTML = 'losses: ' + data[i].losses;
-                        draws.innerHTML = 'draws: ' + data[i].draws;
-                        name.onclick = function () { getUser(user) }
-                        wins.onclick = function () { getUser(user) }
-                        losses.onclick = function () { getUser(user) }
-                        draws.onclick = function () { getUser(user) }
-                        mainContainer.appendChild(name);
-                        mainContainer.appendChild(wins);
-                        mainContainer.appendChild(losses);
-                        mainContainer.appendChild(draws);
-                        mainContainer.appendChild(nl);
-                    }
+                    let user = {
+                        name: data[i].name,
+                        wins: data[i].wins,
+                        losses: data[i].losses,
+                        draws: data[i].draws,
+                    };
+                    var name = document.createElement("h2");
+                    var wins = document.createElement("h3");
+                    var losses = document.createElement("h3");
+                    var draws = document.createElement("h3");
+                    var nl = document.createElement("br");
+                    name.innerHTML = data[i].name;
+                    wins.innerHTML = 'wins: ' + data[i].wins;
+                    losses.innerHTML = 'losses: ' + data[i].losses;
+                    draws.innerHTML = 'draws: ' + data[i].draws;
+                    name.onclick = function () { getUser(user) }
+                    wins.onclick = function () { getUser(user) }
+                    losses.onclick = function () { getUser(user) }
+                    draws.onclick = function () { getUser(user) }
+                    mainContainer.appendChild(name);
+                    mainContainer.appendChild(wins);
+                    mainContainer.appendChild(losses);
+                    mainContainer.appendChild(draws);
+                    mainContainer.appendChild(nl);
                 }
             }
             getUser = data => {
