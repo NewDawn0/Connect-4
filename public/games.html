@@ -40,7 +40,7 @@
                 <h2><span id="youDraws"></span></h2>
             </div>
             <script>
-                let you = JSON.parse(localStorage.getItem("user"));
+                var you = JSON.parse(localStorage.getItem("user"));
                 document.getElementById("youName").innerHTML = you.name;
                 document.getElementById("youWins").innerHTML = "wins: " + you.wins;
                 document.getElementById("youLosses").innerHTML = "losses: " + you.losses;
@@ -54,11 +54,15 @@
                 <h2><span id="enemyDraws"></span></h2>
             </div>
             <script>
-                let enemy = JSON.parse(localStorage.getItem("enemy"));
+                var enemy = JSON.parse(localStorage.getItem("enemy"));
                 document.getElementById("enemyName").innerHTML = enemy.name;
                 document.getElementById("enemyWins").innerHTML = "wins: " + enemy.wins;
                 document.getElementById("enemyLosses").innerHTML = "losses: " + enemy.losses;
                 document.getElementById("enemyDraws").innerHTML = "draws: " + enemy.draws;
+                if (enemy.name == you.name) {
+                    window.location.href = "dashboard.html";
+                    alert("You can't play against yourself!");
+                }
             </script>
             <div id="arrow1" onclick="player(35)"></div>
             <div id="arrow2" onclick="player(36)"></div>

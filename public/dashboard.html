@@ -82,6 +82,37 @@
                 localStorage.setItem('enemy', JSON.stringify(data));
                 location.href = "./games.html";
             }
+            updateUser = () => {
+                let you = JSON.parse(localStorage.getItem("user"));
+                let user = you.name;
+                postData(user);
+                async function postData(user) {
+                    const response = await fetch('/api/userUpdate', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            user: user,
+                        })
+                    });
+                    const data = await response.json();
+                    if (data.success) {
+                        let user = {
+                            "name": data.name,
+                            "wins": data.wins,
+                            "losses": data.losses,
+                            "draws": data.draws,
+                            "inGame": data.inGame,
+                        }
+                        localStorage.setItem("user", JSON.stringify(user));
+                    } else {
+                        console.log("Server error...");
+                        console.log("something went wrong");
+                    }
+                }
+            }
+            updateUser();
         </script>
     </div>
     

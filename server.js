@@ -17,6 +17,24 @@ function User(name, password, wins, losses, draws, inGame) {
     this.draws = draws;
     this.inGame = inGame;
 }
+app.post('/api/userUpdate', (request, response) => {
+    console.log(request.body);
+    database.findOne({"name":request.body.user}, (err, data) => {
+        if (err) {
+            response.end();
+            return;
+        }
+        response.json({
+            name : data.name,
+            wins : data.wins,
+            losses : data.losses,
+            draws : data.draws,
+            inGame : data.inGame,
+            success: true,
+            message: "Updated user"
+        });
+    });
+});
 app.post('/api/userSignup', (request, response) => {
     console.log(request.body);
     user = new User(request.body.user, request.body.pwd, 0, 0, 0, false);
